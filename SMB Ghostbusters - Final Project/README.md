@@ -1,4 +1,4 @@
-# Autonomous SMB Anomaly Detection Pipeline
+# SMB Ghostbusters - Autonomous SMB Anomaly Detection Pipeline
 
 An end-to-end defensive monitoring system powered by Deep Learning and Explainable AI (xAI) designed to detect anomalies and lateral movement of ransomware within the SMB protocol, without relying on pre-configured signature matching
 --- 
