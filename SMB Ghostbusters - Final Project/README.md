@@ -18,9 +18,9 @@ We thank these institutions for providing open-access datasets that enable the a
 
 ## Rationale & Objective
 
-In many critical sectors today (such as healthcare, manufacturing plants and water/electricity utilities), legacy computing infrastructures and outdated communication protocols (e.g., SMBv1/v2) are still widely deployed. These environments are highly susceptible to modern ransomware outbreaks, where traditional signature-based security tools often fail against zero-day or evolved variants.
+In many critical sectors today (such as healthcare, manufacturing plants and water/electricity utilities), legacy computing infrastructures and outdated communication protocols (e.g., SMBv1/v2) are still widely deployed. These environments are highly susceptible to advanced cyber threats, ranging from aggressive worm propagation to devastating ransomware outbreaks, where traditional signature-based security tools consistently fail against zero-day or evasive variants.
 
-This project introduces a proactive solution: an unsupervised ML defense system that models and learns the organization's baseline of legitimate network behavior. By doing so, it detects minute statistical deviations during a ransomware's lateral movement or deployment phases, automatically translating complex neural network outputs into structured, actionable SOC analyst reports in RT.
+This project introduces a proactive solution: an unsupervised ML defense system that models and learns the organization's baseline of legitimate network behavior. By doing so, it detects minute statistical deviations during a malware's lateral movement or deployment phases, automatically translating complex neural network outputs into structured, actionable SOC analyst reports in RT.
 
 ---
 
