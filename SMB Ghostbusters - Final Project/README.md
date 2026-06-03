@@ -10,7 +10,7 @@ An end-to-end defensive monitoring system powered by Deep Learning and Explainab
 This project utilizes high-fidelity network captures from leading cybersecurity research institutions to ensure a robust and realistic evaluation:
 
 1. **Normal Traffic Baseline:** The "Monday" (Normal Working Hours) subset of the **CIC-IDS2017** dataset, provided by the [Canadian Institute for Cybersecurity (CIC)](https://www.unb.ca/cic/datasets/ids-2017.html). 
-2. 2. **Malicious Network Traffic:** Real-world malicious captures spanning various intrusion vectors, including aggressive worms (the infamous **Conficker** network worm), network-replicating wipers (**NotPetya**), network-share encryptors (**Locky, Cerber**), and automated propagation engines (**WannaCry**). These were sourced from the **Stratosphere IPS Project** at the [Czech Technical University (CTU) in Prague](https://www.stratosphereips.org/).
+2. 2. **Malicious Network Traffic:** Real-world malicious captures spanning various intrusion vectors, including aggressive worms (the infamous **Conficker** network worm), network-replicating wipers (**NotPetya**), and automated propagation engines (**WannaCry**). These were sourced from the **Stratosphere IPS Project** at the [Czech Technical University (CTU) in Prague](https://www.stratosphereips.org/).
 
 We thank these institutions for providing open-access datasets that enable the advancement of AI-driven cybersecurity research.
 
