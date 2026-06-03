@@ -1,0 +1,7 @@
+numpy
+scikit-learn
+scapy
+joblib
+streamlit
+groq
+python-dotenv
