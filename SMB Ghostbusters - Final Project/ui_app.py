@@ -93,31 +93,31 @@ def gen_llama_xai(anomaly_sequence_raw_data, loss_value, threshold_value):
     avg_iat_std = np.mean(anomaly_sequence_raw_data[:, 5])
 
     prompt = f"""
-    You are a Senior Cyber Security Analyst and an xAI (Explainable AI) assistant in a Security Operations Center (SOC).
-    An LSTM Autoencoder anomaly detection model has triggered an alert on SMB traffic (port 445).
+  You are a Senior Cyber Security Analyst and an xAI (Explainable AI) assistant in a Security Operations Center (SOC).
+  An LSTM Autoencoder anomaly detection model has triggered an alert on SMB traffic (port 445).
 
-    Alert Details:
-    - Model Type: LSTM Autoencoder (Unsupervised)
-    - Sequence Reconstruction Loss: {loss_value:.4f} (Calculated Anomaly Threshold is {threshold_value:.4f})
+  Alert Details:
+  - Model Type: LSTM Autoencoder (Unsupervised)
+  - Sequence Reconstruction Loss: {loss_value:.4f} (Calculated Anomaly Threshold is {threshold_value:.4f})
 
-    Extracted Network Features (average over 50 packets sequence):
-    1. Shannon Entropy: {avg_entropy:.4f} (Scale: 0-8. Low means unencrypted/structured, high means encrypted/compressed)
-    2. Inter-Arrival Time (IAT): {avg_iat:.6f} seconds (Time gap between sequential packets)
-    3. Packet Size: {avg_packet_size:.1f} bytes
-    4. Direction Ratio: {avg_direction:.4f} (1.0 means purely outbound requests to port 445, 0.0 means inbound responses)
-    5. SMB Opcode: {avg_opcode:.1f} (Heuristic SMB2/3 command identifier from payload offset 12)
-    6. IAT Standard Deviation (Jitter): {avg_iat_std:.6f} (Low variation indicates highly automated machine-driven behavior)
+  Extracted Network Features (average over 50 packets sequence):
+  1. Shannon Entropy: {avg_entropy:.4f} (Scale: 0-8. Low means unencrypted/structured, high means encrypted/compressed)
+  2. Inter-Arrival Time (IAT): {avg_iat:.6f} seconds (Time gap between sequential packets)
+  3. Packet Size: {avg_packet_size:.1f} bytes
+  4. Direction Ratio: {avg_direction:.4f} (1.0 means purely outbound requests to port 445, 0.0 means inbound responses)
+  5. SMB Opcode: {avg_opcode:.1f} (Heuristic SMB2/3 command identifier from payload offset 12)
+  6. IAT Standard Deviation (Jitter): {avg_iat_std:.6f} (Low variation indicates highly automated machine-driven behavior)
 
-    Task:
-    Provide a concise, professional explanation in English for the SOC tier 1 analyst.
-    You MUST evaluate the numbers strictly and mathematically:
-    - If Shannon Entropy is below 2.0, it is LOW (significantly unencrypted, structured traffic like SMBv1 legacy or null byte scans). Do NOT call it high.
-    - If IAT Standard Deviation is high (e.g. > 10.0), it means high variance and bursty/scanning behavior with timeouts, not a tight continuous loop.
-    - Notice that Direction Ratio is 1.0000 (100% outbound requests with NO responses), which indicates aggressive scanning/probing of dead or unresponsive hosts.
+  Task:
+  Provide a concise, professional explanation in English for the SOC tier 1 analyst.
+  You MUST evaluate the numbers strictly and mathematically:
+  - If Shannon Entropy is below 2.0, it is LOW (significantly unencrypted, structured traffic like SMBv1 legacy or null byte scans). Do NOT call it high.
+  - If IAT Standard Deviation is high (e.g. > 10.0), it means high variance and bursty/scanning behavior with timeouts, not a tight continuous loop.
+  - Notice that Direction Ratio is 1.0000 (100% outbound requests with NO responses), which indicates aggressive scanning/probing of dead or unresponsive hosts.
 
-    Explain WHY the deep learning model flagged this sequence based on complex relationship between these 6 features.
-    Correlate the findings specifically to automated Ransomware lifecycle phases (such as WannaCry scanning, EternalBlue exploitation, or rapid encryption) vs. normal enterprise SMB activity.
-    """
+  Explain WHY the deep learning model flagged this sequence based on complex relationship between these 6 features.
+  Correlate the findings to general malicious network intrusion phases and the lateral movement lifecycle-including unauthorized network reconnaissance, scanning, credential abuse (such as Pass-the-Hash), or automated propagation engines (such as WannaCry scanning, EternalBlue exploitation, or rapid encryption)-vs. normal enterprise SMB activity.
+  """
 
     data = client.chat.completions.create(
         messages=[
