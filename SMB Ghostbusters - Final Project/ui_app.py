@@ -143,7 +143,7 @@ def load_pipeline():
     return model, scaler, threshold
 
 st.set_page_config(page_title="SMB AI Detection Pipeline", layout="wide")
-st.title("Ransomware Detection Pipeline")
+st.title("SMB Lateral Movement Detection Machine")
 
 try:
     model, scaler, threshold = load_pipeline()
