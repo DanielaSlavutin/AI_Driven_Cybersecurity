@@ -23,9 +23,9 @@ In real-world SOC and AppSec environments, defensive rules often fail due to une
 * **Red Team Agent:** 
 Red Team is generating attack payloads...
 Bypass Attempts
-**Direct Bypass**: `GET /.%2e/%2e/../../etc/passwd HTTP/1.1`
-**Different Vector**: `GET /index.php?file=../../../../etc/passwd HTTP/1.1`
-**False Positive**: `GET /products/../category/electronics HTTP/1.1`
+   - **Direct Bypass**: `GET /.%2e/%2e/../../etc/passwd HTTP/1.1`
+   - **Different Vector**: `GET /index.php?file=../../../../etc/passwd HTTP/1.1`
+   - **False Positive**: `GET /products/../category/electronics HTTP/1.1`
 
 * **Blue Team Agent:**
 Analyzing the provided WAF rule against the Red Team payloads:
